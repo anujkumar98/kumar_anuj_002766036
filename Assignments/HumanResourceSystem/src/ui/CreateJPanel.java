@@ -6,6 +6,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 import models.Person;
+import models.PersonRegistory;
 
 /**
  *
@@ -16,10 +17,10 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    Person person;
-    public CreateJPanel(Person person) {
+    PersonRegistory personsRecord;
+    public CreateJPanel(PersonRegistory personsRecord) {
         initComponents();
-        this.person=person;
+        this.personsRecord=personsRecord;
     }
 
     /**
@@ -37,6 +38,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         jTextFieldName = new javax.swing.JTextField();
         jLabelAge = new javax.swing.JLabel();
         jTextFieldAge = new javax.swing.JTextField();
+
+        setPreferredSize(new java.awt.Dimension(800, 350));
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -95,7 +98,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelAge)
                     .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSave)
                 .addGap(39, 39, 39))
         );
@@ -103,10 +106,12 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
+        Person person=personsRecord.addNewPerson();
         person.setName(jTextFieldName.getText());
         person.setAge(jTextFieldAge.getText());
-        
         JOptionPane.showMessageDialog(this,"Person Information Saved.");
+        jTextFieldName.setText("");
+        jTextFieldAge.setText("");
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jTextFieldAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAgeActionPerformed

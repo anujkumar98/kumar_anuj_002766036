@@ -4,7 +4,7 @@
  */
 package ui;
 
-import models.Person;
+import models.PersonRegistory;
 
 /**
  *
@@ -16,10 +16,10 @@ public class LandingScreen extends javax.swing.JFrame {
      * Creates new form LandingScreen
      */
     
-    Person person;
+    PersonRegistory personRecord;
     public LandingScreen() {
         initComponents();
-        person=new Person();
+        personRecord=new PersonRegistory(); 
     }
 
     /**
@@ -38,6 +38,7 @@ public class LandingScreen extends javax.swing.JFrame {
         jPanelDisplayArea = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 350));
 
         jButtonCreate.setText("Create");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -105,14 +106,14 @@ public class LandingScreen extends javax.swing.JFrame {
 
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
         // TODO add your handling code here:
-        CreateJPanel createJPanel=new CreateJPanel(person);
+        CreateJPanel createJPanel=new CreateJPanel(personRecord);
         jSplitPaneUiLanding.setRightComponent(createJPanel);
     }//GEN-LAST:event_jButtonCreateActionPerformed
 
     private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
         // TODO add your handling code here:
-        ViewJPanel viewJPanel = new ViewJPanel(person);
-        jSplitPaneUiLanding.setRightComponent(viewJPanel);
+        ViewJPanel viweJPanel=new ViewJPanel(personRecord);
+        jSplitPaneUiLanding.setRightComponent(viweJPanel);
     }//GEN-LAST:event_jButtonViewActionPerformed
 
     /**
