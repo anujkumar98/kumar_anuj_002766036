@@ -4,6 +4,8 @@
  */
 package ui;
 
+import models.Person;
+
 /**
  *
  * @author anujkumar
@@ -13,8 +15,11 @@ public class LandingScreen extends javax.swing.JFrame {
     /**
      * Creates new form LandingScreen
      */
+    
+    Person person;
     public LandingScreen() {
         initComponents();
+        person=new Person();
     }
 
     /**
@@ -35,8 +40,18 @@ public class LandingScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonCreate.setText("Create");
+        jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateActionPerformed(evt);
+            }
+        });
 
         jButtonView.setText("View");
+        jButtonView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelControlPanelLayout = new javax.swing.GroupLayout(jPanelControlPanel);
         jPanelControlPanel.setLayout(jPanelControlPanelLayout);
@@ -78,7 +93,7 @@ public class LandingScreen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPaneUiLanding, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jSplitPaneUiLanding)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,6 +102,18 @@ public class LandingScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
+        // TODO add your handling code here:
+        CreateJPanel createJPanel=new CreateJPanel(person);
+        jSplitPaneUiLanding.setRightComponent(createJPanel);
+    }//GEN-LAST:event_jButtonCreateActionPerformed
+
+    private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
+        // TODO add your handling code here:
+        ViewJPanel viewJPanel = new ViewJPanel(person);
+        jSplitPaneUiLanding.setRightComponent(viewJPanel);
+    }//GEN-LAST:event_jButtonViewActionPerformed
 
     /**
      * @param args the command line arguments

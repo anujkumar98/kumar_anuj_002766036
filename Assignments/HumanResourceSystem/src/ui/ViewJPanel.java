@@ -4,6 +4,8 @@
  */
 package ui;
 
+import models.Person;
+
 /**
  *
  * @author anujkumar
@@ -13,8 +15,11 @@ public class ViewJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewJPanel
      */
-    public ViewJPanel() {
+    Person person;
+    public ViewJPanel(Person person) {
         initComponents();
+        this.person=person;
+        displayPerson();
     }
 
     /**
@@ -26,30 +31,77 @@ public class ViewJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabelName = new javax.swing.JLabel();
+        jTextFieldName = new javax.swing.JTextField();
+        jLabelAge = new javax.swing.JLabel();
+        jTextFieldAge = new javax.swing.JTextField();
+        jLabelTitle = new javax.swing.JLabel();
 
-        jLabel1.setText("View");
+        jLabelName.setText("Name:");
+
+        jLabelAge.setText("Age:");
+
+        jTextFieldAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAgeActionPerformed(evt);
+            }
+        });
+
+        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("VIEW");
+        jLabelTitle.setAlignmentY(0.0F);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addComponent(jLabel1)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelName)
+                    .addComponent(jLabelAge))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldName)
+                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(123, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(jLabelTitle)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelAge)
+                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(168, 168, 168))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextFieldAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAgeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelAge;
+    private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JTextField jTextFieldAge;
+    private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
+
+    private void displayPerson() {
+        jTextFieldAge.setText(person.getAge());
+        jTextFieldName.setText(person.getName());
+    }
 }

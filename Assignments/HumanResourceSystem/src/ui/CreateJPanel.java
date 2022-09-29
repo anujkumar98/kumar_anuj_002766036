@@ -4,6 +4,9 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+import models.Person;
+
 /**
  *
  * @author anujkumar
@@ -13,8 +16,10 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    public CreateJPanel() {
+    Person person;
+    public CreateJPanel(Person person) {
         initComponents();
+        this.person=person;
     }
 
     /**
@@ -26,69 +31,94 @@ public class CreateJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelTitle = new javax.swing.JLabel();
+        jButtonSave = new javax.swing.JButton();
         jLabelName = new javax.swing.JLabel();
-        jButtonSubmit = new javax.swing.JButton();
         jTextFieldName = new javax.swing.JTextField();
         jLabelAge = new javax.swing.JLabel();
         jTextFieldAge = new javax.swing.JTextField();
 
-        jLabelName.setText("Name");
+        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("CREATE");
+        jLabelTitle.setToolTipText("");
+        jLabelTitle.setAlignmentY(0.0F);
 
-        jButtonSubmit.setText("jButton1");
-        jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSave.setText("Save");
+        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSubmitActionPerformed(evt);
+                jButtonSaveActionPerformed(evt);
             }
         });
 
-        jTextFieldName.setText("asd");
+        jLabelName.setText("Name:");
 
-        jLabelAge.setText("Age");
+        jLabelAge.setText("Age:");
 
-        jTextFieldAge.setText("asd");
+        jTextFieldAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAgeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelName)
-                    .addComponent(jLabelAge))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSubmit))
-                .addContainerGap(170, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jButtonSave))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelName)
+                            .addComponent(jLabelAge))
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldName)
+                            .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(17, 17, 17)
+                .addComponent(jLabelTitle)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAge))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(jButtonSubmit)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelAge)
+                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addComponent(jButtonSave)
                 .addGap(39, 39, 39))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitActionPerformed
+    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSubmitActionPerformed
+        person.setName(jTextFieldName.getText());
+        person.setAge(jTextFieldAge.getText());
+        
+        JOptionPane.showMessageDialog(this,"Person Information Saved.");
+    }//GEN-LAST:event_jButtonSaveActionPerformed
+
+    private void jTextFieldAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAgeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonSubmit;
+    private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabelAge;
     private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelTitle;
     private javax.swing.JTextField jTextFieldAge;
     private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
