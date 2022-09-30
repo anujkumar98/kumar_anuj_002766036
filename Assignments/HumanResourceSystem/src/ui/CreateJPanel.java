@@ -39,7 +39,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         jLabelAge = new javax.swing.JLabel();
         jTextFieldAge = new javax.swing.JTextField();
 
-        setPreferredSize(new java.awt.Dimension(800, 350));
+        setPreferredSize(new java.awt.Dimension(800, 400));
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -83,7 +83,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldName)
                             .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 124, Short.MAX_VALUE))
+                .addGap(0, 424, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +98,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelAge)
                     .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
                 .addComponent(jButtonSave)
                 .addGap(39, 39, 39))
         );
@@ -108,7 +108,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Person person=personsRecord.addNewPerson();
         person.setName(jTextFieldName.getText());
-        person.setAge(jTextFieldAge.getText());
+        person.setAge(Integer.parseInt(jTextFieldAge.getText()));
         JOptionPane.showMessageDialog(this,"Person Information Saved.");
         jTextFieldName.setText("");
         jTextFieldAge.setText("");

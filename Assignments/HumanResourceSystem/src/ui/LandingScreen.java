@@ -38,7 +38,7 @@ public class LandingScreen extends javax.swing.JFrame {
         jPanelDisplayArea = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 350));
+        setPreferredSize(new java.awt.Dimension(800, 400));
 
         jButtonCreate.setText("Create");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {

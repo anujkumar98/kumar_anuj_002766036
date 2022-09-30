@@ -43,8 +43,9 @@ public class ViewJPanel extends javax.swing.JPanel {
         jTablePersonDisplay = new javax.swing.JTable();
         jButtonFetchRecord = new javax.swing.JButton();
         jButtonDeleteRecord = new javax.swing.JButton();
+        jButtonUpdate = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(800, 350));
+        setPreferredSize(new java.awt.Dimension(800, 400));
         setRequestFocusEnabled(false);
 
         jLabelName.setText("Name:");
@@ -109,29 +110,38 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButtonUpdate.setText("Update");
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelName)
-                            .addComponent(jLabelAge))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldName)
-                            .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonFetchRecord)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonDeleteRecord)))
-                .addContainerGap(46, Short.MAX_VALUE))
             .addComponent(jLabelTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jButtonFetchRecord)
+                        .addGap(50, 50, 50)
+                        .addComponent(jButtonUpdate)
+                        .addGap(51, 51, 51)
+                        .addComponent(jButtonDeleteRecord)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelName)
+                    .addComponent(jLabelAge))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldName)
+                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,13 +157,14 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelAge)
-                            .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(86, 86, 86)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonFetchRecord)
-                            .addComponent(jButtonDeleteRecord)))
+                            .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonFetchRecord)
+                    .addComponent(jButtonDeleteRecord)
+                    .addComponent(jButtonUpdate))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -167,7 +178,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         if (selectedIndex != -1){
             Person person=personRecord.fetchPerson(selectedIndex);
             jTextFieldName.setText(person.getName());
-            jTextFieldAge.setText(person.getAge());
+            jTextFieldAge.setText(String.valueOf(person.getAge()));
             return;
         }
         JOptionPane.showMessageDialog(this, "Please select a row to display");
@@ -187,10 +198,28 @@ public class ViewJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Please select a row to delete");
     }//GEN-LAST:event_jButtonDeleteRecordActionPerformed
 
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        // TODO add your handling code here:
+        if (jTextFieldName.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please fetch a row to update");
+            return;
+        }
+        String uniqueID=jTextFieldName.getText();//Get unique empolyee ID to update
+        Person personUpdatedDetails=new Person();
+        personUpdatedDetails.setName(jTextFieldName.getText());
+        personUpdatedDetails.setAge(Integer.parseInt(jTextFieldAge.getText()));
+        personRecord.updatePerson(uniqueID,personUpdatedDetails);
+        JOptionPane.showMessageDialog(this, "Record Updated.");
+        jTextFieldName.setText("");
+        jTextFieldAge.setText("");
+        populateTable();
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonDeleteRecord;
     private javax.swing.JButton jButtonFetchRecord;
+    private javax.swing.JButton jButtonUpdate;
     private javax.swing.JLabel jLabelAge;
     private javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelTitle;
