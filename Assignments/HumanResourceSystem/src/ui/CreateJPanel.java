@@ -21,6 +21,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     public CreateJPanel(PersonRegistory personsRecord) {
         initComponents();
         this.personsRecord=personsRecord;
+        addDropDownElements();
     }
 
     /**
@@ -32,12 +33,22 @@ public class CreateJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabelTitle = new javax.swing.JLabel();
         jButtonSave = new javax.swing.JButton();
         jLabelName = new javax.swing.JLabel();
         jTextFieldName = new javax.swing.JTextField();
-        jLabelAge = new javax.swing.JLabel();
+        jLabelEmployeeID = new javax.swing.JLabel();
+        jTextFieldEmployeeID = new javax.swing.JTextField();
+        jLabelNameAge = new javax.swing.JLabel();
         jTextFieldAge = new javax.swing.JTextField();
+        jLabelAgeGender = new javax.swing.JLabel();
+        jLabelNameStartDate = new javax.swing.JLabel();
+        jTextFieldNameStartDate = new javax.swing.JTextField();
+        jLabelAgeLevel = new javax.swing.JLabel();
+        jRadioButtonFemale = new javax.swing.JRadioButton();
+        jRadioButtonMale = new javax.swing.JRadioButton();
+        choiceLevel = new java.awt.Choice();
 
         setPreferredSize(new java.awt.Dimension(800, 400));
 
@@ -56,11 +67,39 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         jLabelName.setText("Name:");
 
-        jLabelAge.setText("Age:");
+        jLabelEmployeeID.setText("Employee Id:");
 
-        jTextFieldAge.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldEmployeeID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAgeActionPerformed(evt);
+                jTextFieldEmployeeIDActionPerformed(evt);
+            }
+        });
+
+        jLabelNameAge.setText("Age:");
+
+        jLabelAgeGender.setText("Gender:");
+
+        jLabelNameStartDate.setText("Start Date:");
+
+        jTextFieldNameStartDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNameStartDateActionPerformed(evt);
+            }
+        });
+
+        jLabelAgeLevel.setText("Level:");
+
+        jRadioButtonFemale.setText("Female");
+        jRadioButtonFemale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonFemaleActionPerformed(evt);
+            }
+        });
+
+        jRadioButtonMale.setText("Male");
+        jRadioButtonMale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMaleActionPerformed(evt);
             }
         });
 
@@ -75,15 +114,36 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addGap(157, 157, 157)
                         .addComponent(jButtonSave))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelName)
-                            .addComponent(jLabelAge))
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldName)
-                            .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 424, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelName)
+                                    .addComponent(jLabelEmployeeID))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldName)
+                                    .addComponent(jTextFieldEmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelNameStartDate)
+                                    .addComponent(jLabelAgeLevel))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldNameStartDate, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(choiceLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelNameAge)
+                                    .addComponent(jLabelAgeGender))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jRadioButtonMale)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jRadioButtonFemale))
+                                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(0, 571, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,9 +156,26 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(jLabelName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelAge)
+                    .addComponent(jLabelEmployeeID)
+                    .addComponent(jTextFieldEmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNameAge)
                     .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAgeGender)
+                    .addComponent(jRadioButtonMale)
+                    .addComponent(jRadioButtonFemale))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNameStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNameStartDate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelAgeLevel)
+                    .addComponent(choiceLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jButtonSave)
                 .addGap(39, 39, 39))
         );
@@ -108,23 +185,59 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Person person=personsRecord.addNewPerson();
         person.setName(jTextFieldName.getText());
-        person.setAge(Integer.parseInt(jTextFieldAge.getText()));
+        person.setAge(Integer.parseInt(jTextFieldEmployeeID.getText()));
         JOptionPane.showMessageDialog(this,"Person Information Saved.");
         jTextFieldName.setText("");
-        jTextFieldAge.setText("");
+        jTextFieldEmployeeID.setText("");
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
-    private void jTextFieldAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAgeActionPerformed
+    private void jTextFieldEmployeeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmployeeIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldAgeActionPerformed
+    }//GEN-LAST:event_jTextFieldEmployeeIDActionPerformed
+
+    private void jRadioButtonMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMaleActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButtonMale.isSelected()){
+            jRadioButtonFemale.setSelected(false);
+        }
+    }//GEN-LAST:event_jRadioButtonMaleActionPerformed
+
+    private void jRadioButtonFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonFemaleActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButtonFemale.isSelected()){
+            jRadioButtonMale.setSelected(false);
+            
+        }
+    }//GEN-LAST:event_jRadioButtonFemaleActionPerformed
+
+    private void jTextFieldNameStartDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameStartDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNameStartDateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private java.awt.Choice choiceLevel;
     private javax.swing.JButton jButtonSave;
-    private javax.swing.JLabel jLabelAge;
+    private javax.swing.JLabel jLabelAgeGender;
+    private javax.swing.JLabel jLabelAgeLevel;
+    private javax.swing.JLabel jLabelEmployeeID;
     private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelNameAge;
+    private javax.swing.JLabel jLabelNameStartDate;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JRadioButton jRadioButtonFemale;
+    private javax.swing.JRadioButton jRadioButtonMale;
     private javax.swing.JTextField jTextFieldAge;
+    private javax.swing.JTextField jTextFieldEmployeeID;
     private javax.swing.JTextField jTextFieldName;
+    private javax.swing.JTextField jTextFieldNameStartDate;
     // End of variables declaration//GEN-END:variables
+
+    private void addDropDownElements() {
+       choiceLevel.add("Junior Developer");
+       choiceLevel.add("Senior Developer");
+       choiceLevel.add("Manager");
+       choiceLevel.add("Senior Manager");
+    }
 }

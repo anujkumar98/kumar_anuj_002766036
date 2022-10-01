@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[800, 400]"/>
@@ -29,19 +33,49 @@
                       <Component id="jButtonSave" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabelName" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAge" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextFieldName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldAge" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabelName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEmployeeID" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTextFieldName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldEmployeeID" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabelNameStartDate" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAgeLevel" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTextFieldNameStartDate" pref="120" max="32767" attributes="0"/>
+                                  <Component id="choiceLevel" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabelNameAge" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAgeGender" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jRadioButtonMale" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonFemale" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jTextFieldAge" min="-2" pref="122" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="571" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,10 +91,31 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelAge" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldAge" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelEmployeeID" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldEmployeeID" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="206" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelNameAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldAge" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelAgeGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonMale" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonFemale" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTextFieldNameStartDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNameStartDate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelAgeLevel" min="-2" max="-2" attributes="0"/>
+                  <Component id="choiceLevel" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Component id="jButtonSave" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
           </Group>
@@ -94,15 +149,60 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldName">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelAge">
+    <Component class="javax.swing.JLabel" name="jLabelEmployeeID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Employee Id:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldEmployeeID">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldEmployeeIDActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNameAge">
       <Properties>
         <Property name="text" type="java.lang.String" value="Age:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldAge">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelAgeGender">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gender:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNameStartDate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Start Date:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldNameStartDate">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAgeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNameStartDateActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelAgeLevel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Level:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonFemale">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Female"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonFemaleActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonMale">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Male"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonMaleActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.Choice" name="choiceLevel">
     </Component>
   </SubComponents>
 </Form>
