@@ -4,7 +4,7 @@
  */
 package ui;
 
-import models.PersonRegistory;
+import models.PersonRegistry;
 
 /**
  *
@@ -16,10 +16,10 @@ public class LandingScreen extends javax.swing.JFrame {
      * Creates new form LandingScreen
      */
     
-    PersonRegistory personRecord;
+    PersonRegistry personRecord;
     public LandingScreen() {
         initComponents();
-        personRecord=new PersonRegistory(); 
+        personRecord=new PersonRegistry(); 
     }
 
     /**
@@ -37,6 +37,7 @@ public class LandingScreen extends javax.swing.JFrame {
         jButtonView = new javax.swing.JButton();
         jButtonSearch = new javax.swing.JButton();
         jPanelDisplayArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1200, 600));
@@ -66,41 +67,51 @@ public class LandingScreen extends javax.swing.JFrame {
         jPanelControlPanel.setLayout(jPanelControlPanelLayout);
         jPanelControlPanelLayout.setHorizontalGroup(
             jPanelControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelControlPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButtonView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addGroup(jPanelControlPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonView, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSearch))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelControlPanelLayout.setVerticalGroup(
             jPanelControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelControlPanelLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(115, 115, 115)
                 .addComponent(jButtonCreate)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonView)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSearch)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         jSplitPaneUiLanding.setLeftComponent(jPanelControlPanel);
 
         jPanelDisplayArea.setPreferredSize(new java.awt.Dimension(800, 400));
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("HUMAN RESOURCE SYSTEM");
+        jLabel1.setAlignmentY(0.0F);
+        jLabel1.setVerifyInputWhenFocusTarget(false);
+
         javax.swing.GroupLayout jPanelDisplayAreaLayout = new javax.swing.GroupLayout(jPanelDisplayArea);
         jPanelDisplayArea.setLayout(jPanelDisplayAreaLayout);
         jPanelDisplayAreaLayout.setHorizontalGroup(
             jPanelDisplayAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
         );
         jPanelDisplayAreaLayout.setVerticalGroup(
             jPanelDisplayAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
+            .addGroup(jPanelDisplayAreaLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addContainerGap(291, Short.MAX_VALUE))
         );
+
+        jLabel1.getAccessibleContext().setAccessibleDescription("");
 
         jSplitPaneUiLanding.setRightComponent(jPanelDisplayArea);
 
@@ -175,6 +186,7 @@ public class LandingScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCreate;
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JButton jButtonView;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelControlPanel;
     private javax.swing.JPanel jPanelDisplayArea;
     private javax.swing.JSplitPane jSplitPaneUiLanding;
