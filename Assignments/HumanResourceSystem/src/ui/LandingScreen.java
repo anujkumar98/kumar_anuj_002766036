@@ -35,10 +35,11 @@ public class LandingScreen extends javax.swing.JFrame {
         jPanelControlPanel = new javax.swing.JPanel();
         jButtonCreate = new javax.swing.JButton();
         jButtonView = new javax.swing.JButton();
+        jButtonSearch = new javax.swing.JButton();
         jPanelDisplayArea = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 400));
+        setPreferredSize(new java.awt.Dimension(1200, 600));
 
         jButtonCreate.setText("Create");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -54,15 +55,24 @@ public class LandingScreen extends javax.swing.JFrame {
             }
         });
 
+        jButtonSearch.setText("Search");
+        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelControlPanelLayout = new javax.swing.GroupLayout(jPanelControlPanel);
         jPanelControlPanel.setLayout(jPanelControlPanelLayout);
         jPanelControlPanelLayout.setHorizontalGroup(
             jPanelControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelControlPanelLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(jPanelControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelControlPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButtonView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelControlPanelLayout.setVerticalGroup(
@@ -72,20 +82,24 @@ public class LandingScreen extends javax.swing.JFrame {
                 .addComponent(jButtonCreate)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonView)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonSearch)
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         jSplitPaneUiLanding.setLeftComponent(jPanelControlPanel);
+
+        jPanelDisplayArea.setPreferredSize(new java.awt.Dimension(800, 400));
 
         javax.swing.GroupLayout jPanelDisplayAreaLayout = new javax.swing.GroupLayout(jPanelDisplayArea);
         jPanelDisplayArea.setLayout(jPanelDisplayAreaLayout);
         jPanelDisplayAreaLayout.setHorizontalGroup(
             jPanelDisplayAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGap(0, 532, Short.MAX_VALUE)
         );
         jPanelDisplayAreaLayout.setVerticalGroup(
             jPanelDisplayAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 338, Short.MAX_VALUE)
         );
 
         jSplitPaneUiLanding.setRightComponent(jPanelDisplayArea);
@@ -94,11 +108,11 @@ public class LandingScreen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPaneUiLanding)
+            .addComponent(jSplitPaneUiLanding, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPaneUiLanding)
+            .addComponent(jSplitPaneUiLanding, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
         );
 
         pack();
@@ -115,6 +129,12 @@ public class LandingScreen extends javax.swing.JFrame {
         ViewJPanel viweJPanel=new ViewJPanel(personRecord);
         jSplitPaneUiLanding.setRightComponent(viweJPanel);
     }//GEN-LAST:event_jButtonViewActionPerformed
+
+    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
+        // TODO add your handling code here:
+        SearchJPanel searchJPanel=new SearchJPanel(personRecord);
+        jSplitPaneUiLanding.setRightComponent(searchJPanel);
+    }//GEN-LAST:event_jButtonSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +173,7 @@ public class LandingScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCreate;
+    private javax.swing.JButton jButtonSearch;
     private javax.swing.JButton jButtonView;
     private javax.swing.JPanel jPanelControlPanel;
     private javax.swing.JPanel jPanelDisplayArea;

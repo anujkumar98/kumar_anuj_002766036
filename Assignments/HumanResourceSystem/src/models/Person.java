@@ -4,6 +4,9 @@
  */
 package models;
 
+import java.time.LocalDate;
+
+
 /**
  *
  * @author anujkumar
@@ -13,7 +16,7 @@ public class Person {
     private int age;
     private String employeeId;
     private String gender;
-    private String startDate;
+    private LocalDate startDate;
     private String level;
     private String teamInfo;
     private String positionTitle;
@@ -53,11 +56,11 @@ public class Person {
         this.gender = gender;
     }
 
-    public String getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
