@@ -4,8 +4,13 @@
  */
 package ui;
 
+import java.awt.Image;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Person;
@@ -56,6 +61,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         jTextFieldTeamInfo = new javax.swing.JTextField();
         jLabelEmail2 = new javax.swing.JLabel();
         jTextFieldCellNumber = new javax.swing.JTextField();
+        jLabelProfilePicture = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1200, 600));
         setRequestFocusEnabled(false);
@@ -139,6 +146,8 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         jLabelEmail2.setText("Cell Phone Number:");
 
+        jLabel1.setText("Photo:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,35 +164,33 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addComponent(jButtonUpdate)
                         .addGap(66, 66, 66)
                         .addComponent(jButtonDeleteRecord)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(jLabelEmail1)
+                    .addComponent(jLabelCellPhoneNumber1)
+                    .addComponent(jLabelEmail2)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelEmail)
                             .addComponent(jLabelCellPhoneNumber))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldPositionTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelName)
-                            .addComponent(jLabelAge))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldEmployeeId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelEmail1)
-                            .addComponent(jLabelCellPhoneNumber1)
-                            .addComponent(jLabelEmail2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldCellNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                            .addComponent(jTextFieldTeamInfo)
-                            .addComponent(jTextFieldLevel, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap(90, Short.MAX_VALUE))
+                            .addComponent(jLabelAge))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldPositionTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldEmployeeId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextFieldCellNumber, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jTextFieldTeamInfo)
+                        .addComponent(jTextFieldLevel, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabelProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(472, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,8 +234,12 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldCellNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelEmail2))))
-                .addContainerGap(78, Short.MAX_VALUE))
+                            .addComponent(jLabelEmail2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -248,7 +259,11 @@ public class ViewJPanel extends javax.swing.JPanel {
             jTextFieldLevel.setText(person.getLevel());
             jTextFieldTeamInfo.setText(person.getTeamInfo());
             jTextFieldCellNumber.setText(person.getCellPhoneNumber());
+            ImageIcon icon = new ImageIcon(person.getProfileImage());
+            Image scaleImage = icon.getImage().getScaledInstance(28, 28,Image.SCALE_DEFAULT);
+            jLabelProfilePicture.setIcon(icon);
             return;
+            
         }
         JOptionPane.showMessageDialog(this, "Please select a row to display");
     }//GEN-LAST:event_jButtonFetchRecordActionPerformed
@@ -307,6 +322,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButtonDeleteRecord;
     private javax.swing.JButton jButtonFetchRecord;
     private javax.swing.JButton jButtonUpdate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAge;
     private javax.swing.JLabel jLabelCellPhoneNumber;
     private javax.swing.JLabel jLabelCellPhoneNumber1;
@@ -314,6 +330,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelEmail1;
     private javax.swing.JLabel jLabelEmail2;
     private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelProfilePicture;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablePersonDisplay;
@@ -379,6 +396,10 @@ public class ViewJPanel extends javax.swing.JPanel {
             validated=0;
         }
         return validated;
+    }
+
+    private void ImageIcon(byte[] profileImage) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

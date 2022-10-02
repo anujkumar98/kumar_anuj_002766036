@@ -4,6 +4,7 @@
  */
 package models;
 
+import java.awt.image.BufferedImage;
 import java.time.LocalDate;
 
 
@@ -22,7 +23,15 @@ public class Person {
     private String positionTitle;
     private String cellPhoneNumber;
     private String emailAddress;
-    
+    private byte profileImage[];
+
+    public byte[] getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(byte profileImage[]) {
+        this.profileImage = profileImage;
+    }
     
     public String getName() {
         return name;

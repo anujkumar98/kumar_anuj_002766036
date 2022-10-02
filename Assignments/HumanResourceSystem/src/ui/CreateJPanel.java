@@ -4,8 +4,11 @@
  */
 package ui;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.logging.Level;
@@ -29,7 +32,7 @@ public class CreateJPanel extends javax.swing.JPanel {
      * Creates new form CreateJPanel
      */
     PersonRegistory personsRecord;
-    BufferedImage profileImage;
+    byte [] profileImage;
     public CreateJPanel(PersonRegistory personsRecord) {
         initComponents();
         this.personsRecord=personsRecord;
@@ -296,6 +299,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         notValidated.setLevel(jTextFieldLevel.getText());
         notValidated.setCellPhoneNumber(jTextFieldCellNumber.getText());
         notValidated.setEmailAddress(jTextFieldEmail.getText());
+        notValidated.setProfileImage(profileImage);
         if (validateInputFields(notValidated) == 1){
             //notValidated=personsRecord.addNewPerson();
             personsRecord.addNewPerson(notValidated);
@@ -310,6 +314,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             jTextFieldCellNumber.setText("");
             jTextFieldEmail.setText("");
             jRadioButtonFemale.setSelected(true);
+            profileImage=null;
         }
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
@@ -351,13 +356,27 @@ public class CreateJPanel extends javax.swing.JPanel {
             File selectedFile=jFileChooser.getSelectedFile();
             String pathSelected=selectedFile.getAbsolutePath();
             JOptionPane.showMessageDialog(this,"File Selected: "+pathSelected);
+            if (selectedFile == null){
+                System.out.print("No file selected");
+            }
+            byte[] b = new byte[(int) selectedFile.length()];
+            try {
+               FileInputStream fileInputStream = new FileInputStream(selectedFile);
+               fileInputStream.read(b);
+            }
+            catch (IOException e1) {
+                   JOptionPane.showMessageDialog(this,"File must be image type.");
+            }
+            profileImage=b;
+            /*
             try {        
-                profileImage = ImageIO.read(selectedFile);
+                profileImage=ImageIO.read(new File (pathSelected));
+                System.out.print(profileImage);
                 
             } catch (IOException ex) {
-                Logger.getLogger(CreateJPanel.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this,"File must be image type.");
             }
-            
+            */
         }
     }//GEN-LAST:event_jButtonChoseFileActionPerformed
 
@@ -449,6 +468,14 @@ public class CreateJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this,"Employee email should be valid.");
             validated=0;
         }
+        else if (profileImage.length == 0){
+            JOptionPane.showMessageDialog(this,"Employee profile pictue cannot be empty.");
+            validated=0; 
+        }
         return validated;
+    }
+
+    private Image resize(BufferedImage profileImage, int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
