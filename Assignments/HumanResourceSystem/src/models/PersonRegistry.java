@@ -35,6 +35,7 @@ public class PersonRegistry {
     }
 
     public void updatePerson(String uniqueID,Person personUpdatedDetails) {
+        //Function to update the person 
         for (Person p:personRecord){
             if (p.getEmployeeId().equals(uniqueID)){
                 p.setName(personUpdatedDetails.getName());
@@ -48,6 +49,7 @@ public class PersonRegistry {
         }
     }
     public ArrayList<Person> searchPerson(Person person){
+        //Function to search the person based on the filters
         ArrayList<Person> filteredPerson=new ArrayList <> ();
         String name=person.getName();
         String gender=person.getGender();

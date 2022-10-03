@@ -6,7 +6,6 @@ package ui;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Person;
 import models.PersonRegistry;

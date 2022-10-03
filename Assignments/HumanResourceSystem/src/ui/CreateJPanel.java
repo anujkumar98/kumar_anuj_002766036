@@ -5,17 +5,12 @@
 package ui;
 
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -30,7 +25,7 @@ import models.PersonRegistry;
 public class CreateJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form CreateJPanel
+     * Creates new form CreateJPanel Constructor
      */
     PersonRegistry personsRecord;
     byte [] profileImage;
@@ -278,7 +273,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
-        // TODO add your handling code here:
+        // Saving the value in a temp object and validating then passing to the person registry
         Person notValidated=new Person();
         notValidated.setName(jTextFieldName.getText());
         try{
@@ -310,6 +305,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         notValidated.setCellPhoneNumber(jTextFieldCellNumber.getText());
         notValidated.setEmailAddress(jTextFieldEmail.getText());
         notValidated.setProfileImage(profileImage);
+        //Checking after validation and setting everything to empty
         if (validateInputFields(notValidated) == 1){
             //notValidated=personsRecord.addNewPerson();
             personsRecord.addNewPerson(notValidated);
@@ -357,7 +353,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextFieldTeamInfoActionPerformed
 
     private void jButtonChoseFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChoseFileActionPerformed
-        // TODO add your handling code here:
+        // To choose image file
         JFileChooser jFileChooser=new JFileChooser();
         int responseCode=jFileChooser.showOpenDialog(null);
         if(responseCode == JFileChooser.APPROVE_OPTION){
@@ -416,6 +412,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void addDropDownElements() {
+        //Adding the drop down for title
             choicePositionTitle.add("Others");
             choicePositionTitle.add("Junior Developer");
             choicePositionTitle.add("Senior Developer");
@@ -425,6 +422,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     }
 
     private int validateInputFields(Person notValidated) {
+        //Function to validate the input fields
         int validated=1;
         Pattern patternEmail = Pattern.compile("^[a-z0-9]+@[a-z]+.[a-z]+$");
         Matcher matcher = patternEmail.matcher(notValidated.getEmailAddress());

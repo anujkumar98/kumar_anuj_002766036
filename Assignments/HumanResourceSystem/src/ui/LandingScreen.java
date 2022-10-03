@@ -130,19 +130,19 @@ public class LandingScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateActionPerformed
-        // TODO add your handling code here:
+        // Open the Create panel
         CreateJPanel createJPanel=new CreateJPanel(personRecord);
         jSplitPaneUiLanding.setRightComponent(createJPanel);
     }//GEN-LAST:event_jButtonCreateActionPerformed
 
     private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
-        // TODO add your handling code here:
+        // Open the View Panel
         ViewJPanel viweJPanel=new ViewJPanel(personRecord);
         jSplitPaneUiLanding.setRightComponent(viweJPanel);
     }//GEN-LAST:event_jButtonViewActionPerformed
 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
-        // TODO add your handling code here:
+        // Open the Search Panel
         SearchJPanel searchJPanel=new SearchJPanel(personRecord);
         jSplitPaneUiLanding.setRightComponent(searchJPanel);
     }//GEN-LAST:event_jButtonSearchActionPerformed
