@@ -5,12 +5,9 @@
 package ui;
 
 import java.awt.Image;
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Person;
@@ -247,7 +244,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextFieldEmployeeIdActionPerformed
 
     private void jButtonFetchRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFetchRecordActionPerformed
-        // TODO add your handling code here:
+        // Function to fetch the record
         int selectedIndex=jTablePersonDisplay.getSelectedRow();
         if (selectedIndex != -1){
             Person person=personRecord.fetchPerson(selectedIndex);
@@ -268,7 +265,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonFetchRecordActionPerformed
 
     private void jButtonDeleteRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteRecordActionPerformed
-        // TODO add your handling code here:
+        // Function to delete the record
         int selectedIndex=jTablePersonDisplay.getSelectedRow();
         if (selectedIndex != -1){
             personRecord.deletePerson(selectedIndex);
@@ -288,11 +285,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonDeleteRecordActionPerformed
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
-        // TODO add your handling code here:
-        //if (jTextFieldEmployeeId.getText().equals("")){
-           // JOptionPane.showMessageDialog(this, "Please fetch a row to update");
-           // return;
-        //}
+        //Function to update the records
         int selectedIndex=jTablePersonDisplay.getSelectedRow();
         System.out.println(selectedIndex);
         if (selectedIndex == -1){
@@ -357,6 +350,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
+        //Function to populate the table
         DefaultTableModel model=(DefaultTableModel) jTablePersonDisplay.getModel();
         model.setRowCount(0);
         for(Person p:personRecord.getPersonRecord()){
@@ -372,6 +366,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         }
     }
     private int validateUpdateRecord(Person notValidated) {
+        //Function to validate the record
         int validated=1;
         Pattern patternCellNumber = Pattern.compile("^[+\\d](\\d{11})$");
         Matcher matcherCell = patternCellNumber.matcher(notValidated.getCellPhoneNumber());
