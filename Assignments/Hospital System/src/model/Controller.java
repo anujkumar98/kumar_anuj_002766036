@@ -8,7 +8,7 @@ package model;
  *
  * @author anujkumar
  */
-public class System {
+public class Controller {
 
     PersonDirectory personDirectory = new PersonDirectory();
     PatientDirectory patientDirectory = new PatientDirectory();
