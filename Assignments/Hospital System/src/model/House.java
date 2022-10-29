@@ -6,11 +6,19 @@ package model;
 
 /**
  *
- * @author anujkumar
+ * @author visha_wb3uzfg
  */
-public class House {
+public class House extends Community{
     
     private String street;
     private String aptNumber;
+
+    public House(String street, String aptNumber, String community, String city) {
+        super(community, city);
+        this.street = street;
+        this.aptNumber = aptNumber;
+    }
+    
+    
     
 }

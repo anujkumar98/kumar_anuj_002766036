@@ -6,18 +6,31 @@ package model;
 
 /**
  *
- * @author anujkumar
+ * @author visha_wb3uzfg
  */
 public class Person {
 
     private int id;
-    private String firstName;
-    private String lastName;
+    private String name;
+    private int age;
     private House house;
     private String userName;
     private String password;
     private boolean status;
     private Role role;
+
+    public Person(String name, int age, String userName, String password, Role role, String aptNumber, String address, String communityName, String cityName) {
+//        this.id = id;
+        House house = new House(address, aptNumber, communityName, cityName);
+        this.name = name;
+        this.age = age;
+        this.house = house;
+        this.userName = userName;
+        this.password = password;
+        this.house = house;
+        this.status = true;
+        this.role = role;
+    }
 
     public int getId() {
         return id;
@@ -27,28 +40,20 @@ public class Person {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public int getAge() {
+        return age;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getuserName() {

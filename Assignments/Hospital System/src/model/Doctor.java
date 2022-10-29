@@ -6,17 +6,15 @@ package model;
 
 /**
  *
- * @author anujkumar
+ * @author visha_wb3uzfg
  */
 public class Doctor extends Person {
     
     private int id;
     private Hospital hospital;
-    
-    
 
-    public Doctor() {
-        super();
+    public Doctor(String name, int age, String username, String password, Role role, String address, String aptNo, String communityName, String cityName) {
+        super(name, age, username, password, role, aptNo,  address, communityName, cityName);
     }
 
     public Hospital getHospital() {

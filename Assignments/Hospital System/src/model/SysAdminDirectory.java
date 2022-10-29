@@ -9,16 +9,17 @@ import java.util.List;
 
 /**
  *
- * @author anujkumar
+ * @author visha_wb3uzfg
  */
 public class SysAdminDirectory extends PersonDirectory {
 
     List<Person> sysadminDirectory = new ArrayList<>();
 
     public SysAdminDirectory() {
-        super();
-
+        
     }
+
+    
 
     public List<Person> getSysadminDirectory() {
         return sysadminDirectory;
@@ -28,8 +29,8 @@ public class SysAdminDirectory extends PersonDirectory {
         this.sysadminDirectory = sysadminDirectory;
     }
 
-    public Person addsysAd(String name) {
-        Person person  = new Person();
+    public Person addsysAd(String name, int age, String username, String password, Role role, String address, String aptNo, String communityName, String cityName) {
+        Person person  = new Person(name, age, username, password, role, aptNo,  address, communityName, cityName);
         this.sysadminDirectory.add(person);
         this.addPerson(person);
         return person;
@@ -38,7 +39,7 @@ public class SysAdminDirectory extends PersonDirectory {
     public void removeSysAd(String username) {
         for (int i = 0; i < this.sysadminDirectory.size(); i++) {
             Person person = this.sysadminDirectory.get(i);
-            if (person.getUserName().equals(username)) {
+            if (person.getuserName().equals(username)) {
                 this.sysadminDirectory.remove(i);
                 this.removePerson(username);
                 break;

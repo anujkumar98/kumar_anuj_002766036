@@ -6,12 +6,19 @@ package model;
 
 /**
  *
- * @author anujkumar
+ * @author visha_wb3uzfg
  */
 public class CommunityAdmin extends Person{
     
     private int id;
-    private String community;
+//    private Community community;
+
+    public CommunityAdmin(String name, int age, String userName, String password, Role role, String aptNumber, String address, String communityName, String cityName) {
+        super(name, age, userName, password, role, aptNumber, address, communityName, cityName);
+//        this.community = community;
+    }
+    
+    
 
     @Override
     public int getId() {
@@ -23,14 +30,6 @@ public class CommunityAdmin extends Person{
         this.id = id;
     }
 
-    public String getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(String community) {
-        this.community = community;
-    }
-    
     
     
 }

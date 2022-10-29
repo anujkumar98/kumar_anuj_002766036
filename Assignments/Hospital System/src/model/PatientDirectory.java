@@ -5,11 +5,12 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  *
- * @author anujkumar
+ * @author visha_wb3uzfg
  */
 public class PatientDirectory extends PersonDirectory{
 
@@ -23,17 +24,19 @@ public class PatientDirectory extends PersonDirectory{
         this.patientDirectory = patientDirectory;
     }
 
-    public Patient addPatient(String name) {
-        Patient patient = new Patient();
+    public Patient addPatient(String name, int age, String userName, String password, Role role, String address, String aptNo, String communityName,String cityName) {
+        Patient patient = new Patient(name, age, userName, password, role, address, aptNo, communityName, cityName);
         this.patientDirectory.add(patient);
-        this.addPerson(patient);
+//        this.addPerson(patient);
+//        
+        
         return patient;
     }
 
     public void removePatient(String username) {
         for (int i = 0; i < this.patientDirectory.size(); i++) {
             Patient patient = this.patientDirectory.get(i);
-            if (patient.getUserName().equals(username)) {
+            if (patient.getuserName().equals(username)) {
                 this.patientDirectory.remove(i);
                 this.removePerson(username);
                 break;

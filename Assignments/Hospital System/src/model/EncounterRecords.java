@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author anujkumar
+ * @author visha_wb3uzfg
  */
 public class EncounterRecords {
     
@@ -23,7 +23,7 @@ public class EncounterRecords {
         this.encounterRecords = encounterRecords;
     }
     
-    public void createEncounter(VitalRecord vital, int patient, int doc){
+    public void createEncounter(VitalRecord vital, String patient, String doc){
 //        VitalRecord vital = new VitalRecord();
         Encounter encounter = new Encounter(patient, vital, doc);
         

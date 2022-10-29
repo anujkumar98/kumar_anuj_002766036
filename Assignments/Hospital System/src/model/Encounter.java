@@ -6,20 +6,54 @@ package model;
 
 /**
  *
- * @author anujkumar
+ * @author visha_wb3uzfg
  */
 public class Encounter {
     
     private int id;
-    private int patientId;
+    private String patientUsername;
     private VitalRecord vital;
-    private int doctorId;
+    private String doctorUsername;
 
-    public Encounter(int patient, VitalRecord vital, int doctor) {
-        this.patientId = patient;
+    public Encounter(String patient, VitalRecord vital, String doctor) {
+        this.patientUsername = patient;
         this.vital = vital;
-        this.doctorId = doctor;
+        this.doctorUsername = doctor;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getPatientUsername() {
+        return patientUsername;
+    }
+
+    public void setPatientUsername(String patientUsername) {
+        this.patientUsername = patientUsername;
+    }
+
+    public VitalRecord getVital() {
+        return vital;
+    }
+
+    public void setVital(VitalRecord vital) {
+        this.vital = vital;
+    }
+
+    public String getDoctorUsername() {
+        return doctorUsername;
+    }
+
+    public void setDoctorUsername(String doctorUsername) {
+        this.doctorUsername = doctorUsername;
+    }
+    
+    
     
     
 }

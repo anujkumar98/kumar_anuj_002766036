@@ -16,9 +16,11 @@ public class Register extends javax.swing.JPanel {
     /**
      * Creates new form Register
      */
-    Controller system = new Controller();
-    public Register() {
+//    Controller system = new Controller();
+    private Controller system;
+    public Register(Controller system) {
         initComponents();
+        this.system = system;
         Role[] role = Role.values();
         addRoles(role);
     }
@@ -255,8 +257,10 @@ public class Register extends javax.swing.JPanel {
         String username = txtusername.getText();
         String password = txtpass.getText();
         String Hospital = txthospital.getText();
-
+           
         Role r = Role.valueOf(choicerole.getSelectedItem());
+        
+        system.signup(name, age, username, password, r, address, city, state, username,Hospital);
     }//GEN-LAST:event_btnsigninActionPerformed
 
 

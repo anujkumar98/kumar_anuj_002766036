@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author anujkumar
+ * @author visha_wb3uzfg
  */
 public class CommunityAdminDirectory extends PersonDirectory {
 
@@ -23,17 +23,20 @@ public class CommunityAdminDirectory extends PersonDirectory {
         this.adminDirectory = adminDirectory;
     }
 
-    public CommunityAdmin addAdmin(String name) {
-        CommunityAdmin communityAdmin = new CommunityAdmin();
+    public CommunityAdmin addAdmin(String name, int age, String userName, String password, Role role, String aptNumber, String address, String communityName, String cityName) {
+        
+        CommunityAdmin communityAdmin = new CommunityAdmin(name, age, userName, password, role, aptNumber, address, communityName, cityName);
+        
         this.adminDirectory.add(communityAdmin);
         this.addPerson(communityAdmin);
+        
         return communityAdmin;
     }
 
     public void removeAdmin(String username) {
         for (int i = 0; i < this.adminDirectory.size(); i++) {
             CommunityAdmin communityAdmin = this.adminDirectory.get(i);
-            if (communityAdmin.getUserName().equals(username)) {
+            if (communityAdmin.getuserName().equals(username)) {
                 this.adminDirectory.remove(i);
                 this.removePerson(username);
                 break;

@@ -3,24 +3,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ui;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Controller;
 
 /**
  *
  * @author anujkumar
  */
-public class Landing extends javax.swing.JFrame {
+public class LandingUsed extends javax.swing.JFrame {
 
     /**
      * Creates new form Landing
      */
     
-    Controller system = new Controller();
-    static Landing landing=new Landing();
-    public Landing() {
+    Controller system;
+    static Landing landing;
+    public LandingUsed() {
         initComponents();
+        readObject();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -140,20 +150,21 @@ public class Landing extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Landing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandingUsed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Landing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandingUsed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Landing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandingUsed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Landing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandingUsed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                landing.setVisible(true);
+                new LandingUsed().setVisible(true);
             }
         });
     }
@@ -166,4 +177,33 @@ public class Landing extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void readObject() {
+        try{
+            /*
+        FileOutputStream f = new FileOutputStream(new File("myObjects.txt"));
+        ObjectOutputStream o = new ObjectOutputStream(f);
+            o.writeObject(system);
+            o.writeObject(landing);
+            o.close();
+            f.close();
+*/
+            FileInputStream fi = new FileInputStream(new File("myObjects.txt"));
+            ObjectInputStream oi = new ObjectInputStream(fi);
+            this.system = (Controller) oi.readObject();
+            this.landing = (Landing) oi.readObject();
+            
+            oi.close();
+            fi.close();
+        }
+        catch (FileNotFoundException e) {
+			System.out.println("File not found");
+		}catch (IOException e) {
+			System.out.println("Error initializing stream Used");
+		} catch (ClassNotFoundException ex) {
+            Logger.getLogger(DoctorAfterLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        // TODO Auto-generated catch block
+        
+    }
 }

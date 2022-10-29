@@ -4,7 +4,10 @@
  */
 package ui;
 
+import java.util.List;
 import model.Controller;
+import model.Person;
+import model.PersonDirectory;
 import model.Role;
 
 /**
@@ -16,11 +19,14 @@ public class Login extends javax.swing.JPanel {
     /**
      * Creates new form Login
      */
-    Controller system = new Controller();
-    public Login() {
+    Controller system;
+    Landing landing;
+    public Login(Controller system,Landing landing) {
+        this.system = system;
         initComponents();
-        Role [] role = Role.values();
+        Role[] role = Role.values();
         addRole(role);
+        this.landing=landing;
     }
 
     /**
@@ -163,12 +169,32 @@ public class Login extends javax.swing.JPanel {
         String password = jTextFieldPassword.getText();
         Role r = Role.valueOf(choiceRole.getSelectedItem());
         //Validate fields
-        system.signin(username,password,r );
+        Person person = system.signin(username, password, r);
+        if ( person != null){
+            System.out.println(person.getRole().toString());
+            landing.setVisible(false);
+            DoctorAfterLogin pageDoctor=new DoctorAfterLogin(system,person,landing);
+            PatientAfterLogin pagePatient=new PatientAfterLogin(system,person);
+            SysAdminAfterLogin pageSysAdmin=new SysAdminAfterLogin(system,person);
+            CommunityAdminAfterLogin pageComunity=new CommunityAdminAfterLogin(system,person);
+            switch (person.getRole().toString()){
+                case "PATIENT" ->
+                    pagePatient.setVisible(true);
+                case "DOCTOR" ->
+                    pageDoctor.setVisible(true);
+                case "COMMUNITYADMIN" ->
+                    pageComunity.setVisible(true);
+                case "SYSADMIN" ->
+                    pageSysAdmin.setVisible(true);
+            }
+                   
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jButtonBackActionPerformed
 
 
@@ -185,10 +211,10 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
 
-    private void addRole(Role [] role) {
+    private void addRole(Role[] role) {
         //Adding the drop down for title
-            for (Role r:role){
-                choiceRole.add(r.toString());
-            }    
-    }  
+        for (Role r : role) {
+            choiceRole.add(r.toString());
+        }
+    }
 }

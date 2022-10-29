@@ -2,15 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package ui;
 
 /**
  *
- * @author visha_wb3uzfg
+ * @author anujkumar
  */
-public enum Role {
-    DOCTOR,
-    PATIENT,
-    COMMUNITYADMIN,
-    SYSADMIN
+class Perosn {
+    
 }
