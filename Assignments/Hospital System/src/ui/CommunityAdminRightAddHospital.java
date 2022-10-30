@@ -118,12 +118,11 @@ public class CommunityAdminRightAddHospital extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(workAreaLayout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(btnAddHospitals)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonDeleteHospital))
+                                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(63, 63, 63)
+                        .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonDeleteHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddHospitals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(workAreaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -137,22 +136,21 @@ public class CommunityAdminRightAddHospital extends javax.swing.JPanel {
                 .addGap(31, 31, 31)
                 .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(btnAddHospitals))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonDeleteHospital))
                     .addComponent(jLabel6))
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddHospitals)
-                    .addComponent(jButtonDeleteHospital))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -178,15 +176,36 @@ public class CommunityAdminRightAddHospital extends javax.swing.JPanel {
         String name = txtHospitalName.getText();
         String city = txtCity.getText();
         String CommunityName = txtCommunityName.getText();
-        system.addHospital(name, city, CommunityName);
-        HospitalDirectory hd= system.getHospitalDirectory();
-        List<Hospital> hospitals = hd.getHospitalList();
-        populateTable(hospitals);
-        txtHospitalName.setText("");
-        txtCity.setText("");     
-        txtCommunityName.setText("");
+        int validate=validateInputFields(name,city,CommunityName);
+        if(validate == 1){
+            system.addHospital(name, city, CommunityName);
+            HospitalDirectory hd= system.getHospitalDirectory();
+            List<Hospital> hospitals = hd.getHospitalList();
+            populateTable(hospitals);
+            txtHospitalName.setText("");
+            txtCity.setText("");     
+            txtCommunityName.setText("");
+        }
     }//GEN-LAST:event_btnAddHospitalsActionPerformed
 
+    private int validateInputFields(String name,String city,String CommunityName) {
+        //Function to validate the input fields
+        int validated=1;
+        
+        if(name == null || name.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Hospital name cannot be empty.");
+            validated=0;
+        }
+        else if(city == null || city.isEmpty()){
+            JOptionPane.showMessageDialog(this,"City cannot be empty.");
+            validated=0;
+        }
+        else if(CommunityName == null || CommunityName.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Community name cannot be empty.");
+            validated=0;
+        }
+        return validated;
+    }
     private void jButtonDeleteHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteHospitalActionPerformed
         // TODO add your handling code here:
         

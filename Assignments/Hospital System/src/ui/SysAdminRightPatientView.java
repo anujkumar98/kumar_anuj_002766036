@@ -4,6 +4,12 @@
  */
 package ui;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import model.Controller;
+import model.Patient;
+import model.PatientDirectory;
+
 /**
  *
  * @author HP
@@ -13,8 +19,13 @@ public class SysAdminRightPatientView extends javax.swing.JPanel {
     /**
      * Creates new form AdminPatient
      */
-    public SysAdminRightPatientView() {
+    Controller system;
+    public SysAdminRightPatientView(Controller system) {
         initComponents();
+        this.system=system;
+        PatientDirectory pd=system.getPatientDirectory();
+        List <Patient> patient=pd.getPatientDirectory();
+        populateTable(patient);
     }
 
     /**
@@ -26,24 +37,10 @@ public class SysAdminRightPatientView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableViewPatient = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(204, 255, 204));
-
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Delete Patient");
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("View Patient");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableViewPatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -51,44 +48,52 @@ public class SysAdminRightPatientView extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Name", "Contact no.", "Age"
+                "Name", "Age", "Community"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableViewPatient);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jButton2)
-                .addGap(31, 31, 31)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableViewPatient;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable(List <Patient> patient) {
+        DefaultTableModel model=(DefaultTableModel) jTableViewPatient.getModel(); 
+    model.setRowCount(0);
+    for(Patient p:patient){
+        Object[] row = new Object[3];
+        row[0] = p.getName();
+        row[1] = p.getAge();
+        row[2] = p.getHouse().getCommunityName();
+        model.addRow(row);
+    } 
+    }
 }

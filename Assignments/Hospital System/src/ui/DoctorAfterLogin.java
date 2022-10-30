@@ -3,16 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ui;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.Controller;
 import model.Person;
 
@@ -28,16 +18,15 @@ public class DoctorAfterLogin extends javax.swing.JFrame {
     static Controller system;
     static Person person;
     static Landing landing;
-    static DoctorAfterLogin doctorAfterLogin;
-    public DoctorAfterLogin(Controller system , Person p,Landing landing) {
+
+    
+    public DoctorAfterLogin(Controller system , Person p) {
         initComponents();
         this.system=system;
         this.person=p;
-        this.landing=landing;
         jLabelRole.setText(person.getRole().toString());
         jLabelName.setText(person.getName());
         jLabelUserName.setText(person.getuserName());
-        writeObject(system,landing);
     }
 
     /**
@@ -87,7 +76,7 @@ public class DoctorAfterLogin extends javax.swing.JFrame {
             }
         });
 
-        jButtonLogout.setText("Logout");
+        jButtonLogout.setText("Exit");
         jButtonLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLogoutActionPerformed(evt);
@@ -149,7 +138,7 @@ public class DoctorAfterLogin extends javax.swing.JFrame {
                 .addComponent(jButtonEnterEncounter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonLogout)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         jSplitPaneDoctor.setLeftComponent(jPanelLeftPane);
@@ -158,11 +147,11 @@ public class DoctorAfterLogin extends javax.swing.JFrame {
         jPanelRightPane.setLayout(jPanelRightPaneLayout);
         jPanelRightPaneLayout.setHorizontalGroup(
             jPanelRightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 652, Short.MAX_VALUE)
         );
         jPanelRightPaneLayout.setVerticalGroup(
             jPanelRightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 448, Short.MAX_VALUE)
+            .addGap(0, 486, Short.MAX_VALUE)
         );
 
         jSplitPaneDoctor.setRightComponent(jPanelRightPane);
@@ -171,7 +160,7 @@ public class DoctorAfterLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPaneDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
+            .addComponent(jSplitPaneDoctor)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,39 +181,13 @@ public class DoctorAfterLogin extends javax.swing.JFrame {
         DoctorRightPatientHistoryEnter drph=new DoctorRightPatientHistoryEnter(system,person);
         jSplitPaneDoctor.setRightComponent(drph);
     }//GEN-LAST:event_jButtonEnterEncounterActionPerformed
-    void writeObject(Controller system,Landing landing){
-        try{
-        FileOutputStream f = new FileOutputStream(new File("myObjects.txt"));
-        ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(system);
-            o.writeObject(landing);
-            o.close();
-            f.close();
-            FileInputStream fi = new FileInputStream(new File("myObjects.txt"));
-            ObjectInputStream oi = new ObjectInputStream(fi);
-            Controller system1 = (Controller) oi.readObject();
-            Landing landing1 = (Landing) oi.readObject();
-            
-            oi.close();
-            fi.close();
-        }
-        catch (FileNotFoundException e) {
-			System.out.println("File not found");
-		}catch (IOException e) {
-			System.out.println("Error initializing stream");
-		} catch (ClassNotFoundException ex) {
-            Logger.getLogger(DoctorAfterLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // TODO Auto-generated catch block
-        
-
-    }
+    
     
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
         // TODO add your handling code here:
-        LandingUsed landingUsed = new LandingUsed();
-        landingUsed.setVisible(true);
-        doctorAfterLogin.setVisible(false);
+        
+        System.exit(0);
+        
         
     }//GEN-LAST:event_jButtonLogoutActionPerformed
 
@@ -259,7 +222,8 @@ public class DoctorAfterLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DoctorAfterLogin(system,person,landing).setVisible(true);
+                
+                new DoctorAfterLogin(system,person).setVisible(true);
             }
         });
     }
@@ -280,7 +244,5 @@ public class DoctorAfterLogin extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPaneDoctor;
     // End of variables declaration//GEN-END:variables
 
-    private void writeObject() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }

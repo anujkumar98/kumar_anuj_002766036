@@ -42,6 +42,8 @@ public class Controller {
         Person doc = this.doctorDirectory.addDoctor("doc", 10, "doc", "doc", Role.DOCTOR, "wet", "tyr", "qweq", "yui", hospital);
         this.personDirectory.addPerson(doc);
        
+        Person sysad = this.doctorDirectory.addDoctor("doc", 10, "sys", "admin", Role.SYSADMIN, "wet", "tyr", "qweq", "yui", hospital);
+        this.personDirectory.addPerson(sysad);
         this.createEncounter("asd", "doc", 20, 98, "", "");
        
        

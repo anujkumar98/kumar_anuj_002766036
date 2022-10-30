@@ -160,8 +160,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonLogout">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Logout"/>
+                <Property name="text" type="java.lang.String" value="Exit"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLogoutActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

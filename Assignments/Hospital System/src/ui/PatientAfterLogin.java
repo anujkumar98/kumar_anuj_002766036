@@ -74,7 +74,12 @@ public class PatientAfterLogin extends javax.swing.JFrame {
             }
         });
 
-        jButtonLogout.setText("Logout");
+        jButtonLogout.setText("Exit");
+        jButtonLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelLeftPaneLayout = new javax.swing.GroupLayout(jPanelLeftPane);
         jPanelLeftPane.setLayout(jPanelLeftPaneLayout);
@@ -174,6 +179,11 @@ public class PatientAfterLogin extends javax.swing.JFrame {
         PatientRightViewEncounter prve=new PatientRightViewEncounter(system,person);
         jSplitPaneDoctor.setRightComponent(prve);
     }//GEN-LAST:event_jButtonViewHistoryActionPerformed
+
+    private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButtonLogoutActionPerformed
 
     /**
      * @param args the command line arguments

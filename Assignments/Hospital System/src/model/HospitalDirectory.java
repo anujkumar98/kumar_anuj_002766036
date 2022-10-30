@@ -14,6 +14,7 @@ import java.util.List;
 public class HospitalDirectory {
 
     private List<Hospital> hospitalList = new ArrayList<>();
+    public List<Hospital> get;
 
     public List<Hospital> getHospitalList() {
         return hospitalList;
