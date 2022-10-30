@@ -50,6 +50,7 @@ public class PatientRightSearchHospital extends javax.swing.JPanel {
         jLabel27 = new javax.swing.JLabel();
         patientSearchCity = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
+        jButtonClear = new javax.swing.JButton();
 
         jTableHospital.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,6 +101,13 @@ public class PatientRightSearchHospital extends javax.swing.JPanel {
         jLabel28.setFont(new java.awt.Font("Rockwell", 0, 13)); // NOI18N
         jLabel28.setText("City");
 
+        jButtonClear.setText("Clear");
+        jButtonClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,18 +115,20 @@ public class PatientRightSearchHospital extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel27)
                             .addComponent(jLabel28))
                         .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnSearch)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(patientSearchCity, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                                .addComponent(patientSearchCommunityName)))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BtnSearch)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonClear))
+                            .addComponent(patientSearchCity)
+                            .addComponent(patientSearchCommunityName)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +144,9 @@ public class PatientRightSearchHospital extends javax.swing.JPanel {
                     .addComponent(patientSearchCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnSearch)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnSearch)
+                    .addComponent(jButtonClear))
                 .addGap(143, 143, 143))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -166,6 +178,12 @@ public class PatientRightSearchHospital extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_patientSearchCityActionPerformed
 
+    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
+        // TODO add your handling code here:
+        patientSearchCity.setText("");
+        patientSearchCommunityName.setText("");
+    }//GEN-LAST:event_jButtonClearActionPerformed
+
 
      void populateTable(List <Hospital> hospital){
     DefaultTableModel model=(DefaultTableModel) jTableHospital.getModel(); 
@@ -182,6 +200,7 @@ public class PatientRightSearchHospital extends javax.swing.JPanel {
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSearch;
+    private javax.swing.JButton jButtonClear;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JScrollPane jScrollPane1;

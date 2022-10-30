@@ -209,7 +209,8 @@ public class Login extends javax.swing.JPanel {
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
         // TODO add your handling code here:
-
+        jTextFieldUsername.setText("");
+        jTextFieldPassword.setText("");
     }//GEN-LAST:event_jButtonBackActionPerformed
 
 

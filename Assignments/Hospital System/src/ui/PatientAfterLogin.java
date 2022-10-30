@@ -136,7 +136,7 @@ public class PatientAfterLogin extends javax.swing.JFrame {
                 .addComponent(jButtonViewHistory)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonLogout)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         jSplitPaneDoctor.setLeftComponent(jPanelLeftPane);
@@ -145,11 +145,11 @@ public class PatientAfterLogin extends javax.swing.JFrame {
         jPanelRightPane.setLayout(jPanelRightPaneLayout);
         jPanelRightPaneLayout.setHorizontalGroup(
             jPanelRightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 714, Short.MAX_VALUE)
         );
         jPanelRightPaneLayout.setVerticalGroup(
             jPanelRightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 448, Short.MAX_VALUE)
+            .addGap(0, 473, Short.MAX_VALUE)
         );
 
         jSplitPaneDoctor.setRightComponent(jPanelRightPane);
@@ -158,7 +158,7 @@ public class PatientAfterLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPaneDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
+            .addComponent(jSplitPaneDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, 861, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

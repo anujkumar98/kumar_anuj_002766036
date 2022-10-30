@@ -4,12 +4,14 @@
  */
 package model;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
- * @author visha_wb3uzfg
+ * @author anujkumar
  */
 public class Controller {
 
@@ -21,37 +23,67 @@ public class Controller {
 
     HospitalDirectory hospitalDirectory = new HospitalDirectory();
     EncounterRecords encounterRecords = new EncounterRecords();
-    
-     public Controller() {
-       
-//        for (int i = 0; i < 5; i++) {
-        this.createHospital("xyz", "abc", "qwe");
-        this.createHospital("abc", "mkl", "rte");
-        this.createHospital("rtyr", "gh", "tyut");
-        Person per = this.patientDirectory.addPatient("asd", 10, "asd", "asd", Role.PATIENT, "wet", "tyr", "qweq", "yui");
-        this.personDirectory.addPerson(per);
-        
-        Person per1 = this.patientDirectory.addPatient("anuj", 10, "anuj", "asd", Role.PATIENT, "wet", "tyr", "qweq", "yui");
-        this.personDirectory.addPerson(per1);
-       
-        Person com = this.communityAdminDirectory.addAdmin("asd", 10, "com", "asd", Role.COMMUNITYADMIN, "wet", "tyr", "qweq", "yui");
-        this.personDirectory.addPerson(com);
-       
-       
-        Hospital hospital = hospitalDirectory.searchHospitalByName("xyz");
-        Person doc = this.doctorDirectory.addDoctor("doc", 10, "doc", "doc", Role.DOCTOR, "wet", "tyr", "qweq", "yui", hospital);
-        this.personDirectory.addPerson(doc);
-       
-        Person sysad = this.doctorDirectory.addDoctor("doc", 10, "sys", "admin", Role.SYSADMIN, "wet", "tyr", "qweq", "yui", hospital);
-        this.personDirectory.addPerson(sysad);
-        this.createEncounter("asd", "doc", 20, 98, "", "");
-       
-       
-//        }
 
+    public Controller() {
+
+        this.initializeHospital();
+        this.initializePatient();
+        this.intializeDoctor();
+        this.initializeEncounter();
+
+//        }
     }
+
     public PersonDirectory getPersonDirectory() {
         return personDirectory;
+    }
+
+    public void initializeHospital() {
+        this.createHospital("Well Being Hospital", "Jackson Square", "Boston");
+        this.createHospital("Fortis Hospital", "Jackson Square", "Boston");
+        this.createHospital("ABR Hospital", "Fenway", "Somerville");
+        this.createHospital("Ram Hospital", "Roxbury", "Boston");
+        this.createHospital("Vedanta Hospital", "Brigton", "Cambridge");
+        this.createHospital("Viran Hospital", "Fenway", "Somerville");
+    }
+
+    public void initializePatient() {
+
+        Person per = this.patientDirectory.addPatient("Anuj", 25, "Anuj", "anuj", Role.PATIENT, "Walnut Avenue", "1", "Roxbury", "Boston");
+        this.personDirectory.addPerson(per);
+        Person per1 = this.patientDirectory.addPatient("Akash", 37, "Akash", "akash", Role.PATIENT, "Hudington Avenue", "2", "Jackson Square", "Boston");
+        this.personDirectory.addPerson(per1);
+        Person per2 = this.patientDirectory.addPatient("Ram", 30, "Ram", "ram", Role.PATIENT, "Heits Avenue", "6", "Fenway", "Somerville");
+        this.personDirectory.addPerson(per2);
+        Person per3 = this.patientDirectory.addPatient("Kashyab", 37, "Kashyab", "kashyab", Role.COMMUNITYADMIN, "JP", "7", "Brigton", "Cambridge");
+        this.personDirectory.addPerson(per3);
+        Person per4 = this.patientDirectory.addPatient("Vishal", 30, "Vishal", "vishal", Role.SYSADMIN, "PAS Avenue", "8", "Jackson Square", "Boston");
+        this.personDirectory.addPerson(per4);
+
+    }
+
+    public void intializeDoctor() {
+
+        Hospital hospital = hospitalDirectory.searchHospitalByName("Well Being Hospital");
+        Person doc = this.doctorDirectory.addDoctor("Kunal", 25, "Kunal", "kunal", Role.DOCTOR, "Walnut", "7", "Jackson Square", "Boston", hospital);
+        this.personDirectory.addPerson(doc);
+
+        Hospital hospital1 = hospitalDirectory.searchHospitalByName("Fortis Hospital");
+        Person per1 = this.doctorDirectory.addDoctor("Anni", 37, "Anni", "anni", Role.DOCTOR, "JP", "9", "Jackson Square", "Boston", hospital1);
+        this.personDirectory.addPerson(per1);
+
+        Hospital hospital2 = hospitalDirectory.searchHospitalByName("Vedanta Hospital");
+        Person per2 = this.doctorDirectory.addDoctor("Kash", 37, "Kash", "kash", Role.DOCTOR, "address1", "A", "Brigton", "Cambridge", hospital2);
+        this.personDirectory.addPerson(per2);
+
+    }
+
+    public void initializeEncounter() {
+        this.createEncounter("Kashyab", "Kash", 80, 98, "Healthy", "None");
+        this.createEncounter("Akash", "Kunal", 66, 97, "Healthy", "Pollen");
+        this.createEncounter("Kashyab", "Kash", 70, 96, "Cold", "Dogs");
+        this.createEncounter("Vishal", "Anni", 87, 102, "Fever", "Dust");
+        this.createEncounter("Vishal", "Anni", 70, 103, "High Fever", "Pollen");
     }
 
     public void setPersonDirectory(PersonDirectory personDirectory) {
@@ -105,12 +137,10 @@ public class Controller {
     public void setEncounterRecords(EncounterRecords encounterRecords) {
         this.encounterRecords = encounterRecords;
     }
-    
-    
 
     public boolean signup(String name, int age, String userName, String password, Role role, String address, String aptNo, String communityName, String cityName, String hospitalName) {
 //        name, age, password, role, address, aptNo, cityName
-        System.out.println(userName);
+        //System.out.println(userName);
         Person person = null;
         switch (role) {
             case PATIENT ->
@@ -121,41 +151,21 @@ public class Controller {
 
             case SYSADMIN ->
                 person = sysadminDirectory.addsysAd(name, age, userName, password, role, address, aptNo, communityName, cityName);
-            case DOCTOR ->{
+            case DOCTOR -> {
                 Hospital hospital = hospitalDirectory.searchHospitalByName(hospitalName);
                 person = doctorDirectory.addDoctor(name, age, userName, password, role, address, aptNo, communityName, cityName, hospital);
             }
         }
-        
+
         this.personDirectory.addPerson(person);
-        
-        System.out.println("Print");
-        for (Person p: this.personDirectory.getPersonDirectory()){
-            System.out.println(p.getuserName()+"="+p.getPassword());
+
+        //System.out.println("Print");
+        for (Person p : this.personDirectory.getPersonDirectory()) {
+            //System.out.println(p.getuserName() + "=" + p.getPassword());
         }
         return true;
     }
-    
-    public List<Hospital> searchHospital(String communityName, String cityName) {
 
-        List<Hospital> hospitalResult = new ArrayList<>();
-        if (cityName != null) {
-            if (communityName != null) {
-                return hospitalDirectory.searchHospitalByAll(communityName, cityName);
-            }
-        }
-
-        if (cityName == null) {
-            return hospitalDirectory.searchHospitalByComunity(communityName);
-        }
-
-        if (communityName == null) {
-            return hospitalDirectory.searchHospitalByCity(cityName);
-        }
-
-        return hospitalResult;
-    }
-    
 //
 //    public boolean signup(String name, int age, String userName, String password, Role role, String address, String aptNo, String communityName, String cityName, String hospitalName) {
 //
@@ -168,43 +178,24 @@ public class Controller {
 //
 //        return true;
 //    }
-
     public Person signin(String name, String password, Role role) {
-        System.out.println(name+""+password+""+role);
+        //System.out.println(name + "" + password + "" + role);
         return personDirectory.authenticatePerson(name, password, role);
     }
-    public void createHospital(String name, String community, String city){
-        hospitalDirectory.addHospital(name, community, city);
-    }
-    
-    public List<Encounter> searchEncountersByDoctor(String doctorName){
-        
+
+    public List<Encounter> searchEncountersByDoctor(String doctorName) {
+
         List<Encounter> encounterResult = new ArrayList<>();
-        
-        for (Encounter e: encounterRecords.getEncounterRecords()){
-            if (e.getDoctorUsername().equals(doctorName)){
+
+        for (Encounter e : encounterRecords.getEncounterRecords()) {
+            if (e.getDoctorUsername().equals(doctorName)) {
                 encounterResult.add(e);
             }
         }
-        
+
         return encounterResult;
-        
     }
-    
-//    public 
-    
-//    public Doctor searchDoctor() {
-//        
-////        personDirectory
-//        return null;
-//    }
 
-    public void createEncounter(String patientUsername, String doctorUsername, int heartrate, float temperature, String remarks, String allergies) {
-//      Add Vital params
-        VitalRecord vital = new VitalRecord(heartrate, temperature, remarks, allergies);
-
-        encounterRecords.createEncounter(vital, patientUsername, doctorUsername);
-    }
     public List<Encounter> searchEncountersByPatient(String doctorName, String patientName) {
 
         List<Encounter> encounterResult = new ArrayList<>();
@@ -223,6 +214,23 @@ public class Controller {
         return encounterResult;
     }
 
+    public void createHospital(String name, String community, String city) {
+        hospitalDirectory.addHospital(name, community, city);
+    }
+
+//    public 
+//    public Doctor searchDoctor() {
+//        
+////        personDirectory
+//        return null;
+//    }
+    public void createEncounter(String patientUsername, String doctorUsername, int heartrate, float temperature, String remarks, String allergies) {
+//      Add Vital params
+        VitalRecord vital = new VitalRecord(heartrate, temperature, remarks, allergies);
+
+        encounterRecords.createEncounter(vital, patientUsername, doctorUsername);
+    }
+
     public void addHospital(String name, String city, String communityName) {
 //        Add hospital parameters
 
@@ -235,6 +243,26 @@ public class Controller {
 
     public void removeHospital(int id) {
         hospitalDirectory.removeHospital(id);
+    }
+
+    public List<Hospital> searchHospital(String communityName, String cityName) {
+
+        List<Hospital> hospitalResult = new ArrayList<>();
+        if (cityName != null) {
+            if (communityName != null) {
+                return hospitalDirectory.searchHospitalByAll(communityName, cityName);
+            }
+        }
+
+        if (cityName == null) {
+            return hospitalDirectory.searchHospitalByComunity(communityName);
+        }
+
+        if (communityName == null) {
+            return hospitalDirectory.searchHospitalByCity(cityName);
+        }
+
+        return hospitalResult;
     }
 
 }

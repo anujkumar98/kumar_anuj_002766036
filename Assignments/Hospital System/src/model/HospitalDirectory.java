@@ -24,7 +24,7 @@ public class HospitalDirectory {
         this.hospitalList = hospitalList;
     }
 
-    public void addHospital(String name, String city, String community) {
+    public void addHospital(String name, String community, String city) {
         Hospital hospital = new Hospital(name, community, city);
         this.hospitalList.add(hospital);
     }
