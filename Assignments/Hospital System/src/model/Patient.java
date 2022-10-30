@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author visha_wb3uzfg
+ * @author anujkumae
  */
 public class Patient extends Person{
     

@@ -15,9 +15,9 @@ import model.Role;
  * @author anujkumar
  */
 public class Register extends javax.swing.JPanel {
-
+   
     /**
-     * Creates new form Register
+     * Creates new form Register and register user
      */
 //    Controller system = new Controller();
     private Controller system;
@@ -223,7 +223,7 @@ public class Register extends javax.swing.JPanel {
                     .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonClear)
                     .addComponent(jButtonClear1))
                 .addContainerGap(51, Short.MAX_VALUE))
@@ -245,6 +245,7 @@ public class Register extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addRoles(Role [] role){
+        //Function to add roles in dorpdown
         for (Role r: role){
             choicerole.add(r.toString());
         }
@@ -299,8 +300,8 @@ public class Register extends javax.swing.JPanel {
         
         return validated;
     }
-    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
-        // TODO add your handling code here:
+    void clearField(){
+        //Clear all input fields
         txtcontact.setText("");
         txtaddress.setText("");
         txtcity.setText("");
@@ -309,10 +310,15 @@ public class Register extends javax.swing.JPanel {
         txtusername.setText("");
         txtpass.setText("");
         txthospital.setText("");
+    }
+    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
+        // TODO add your handling code here:
+        clearField();
     }//GEN-LAST:event_jButtonClearActionPerformed
 
     private void jButtonClear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClear1ActionPerformed
         // TODO add your handling code here:
+        //Register new user
         String name = txtname.getText();
         int age=-1;
         try{
@@ -334,6 +340,8 @@ public class Register extends javax.swing.JPanel {
         int validated=validateInputFields(name,age,contactno,address,city,zip,state,username,password);
         if (validated == 1){
             system.signup(name, age, username, password, r, address, city, state, username,hospital);
+            JOptionPane.showMessageDialog(this,"Regoster Successful");
+            clearField();
         }
     }//GEN-LAST:event_jButtonClear1ActionPerformed
 

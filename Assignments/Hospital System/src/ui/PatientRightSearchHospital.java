@@ -16,7 +16,7 @@ import model.VitalRecord;
 
 /**
  *
- * @author kb282
+ * @author anujkumar
  */
 public class PatientRightSearchHospital extends javax.swing.JPanel {
 

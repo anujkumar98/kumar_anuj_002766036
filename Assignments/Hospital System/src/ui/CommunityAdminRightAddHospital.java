@@ -13,7 +13,7 @@ import model.HospitalDirectory;
 
 /**
  *
- * @author renuka
+ * @author anujkumar
  */
 public class CommunityAdminRightAddHospital extends javax.swing.JPanel {
 

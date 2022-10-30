@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author visha_wb3uzfg
+ * @author anujkumar
  */
 public class House extends Community{
     

@@ -12,7 +12,7 @@ import model.HospitalDirectory;
 
 /**
  *
- * @author HP
+ * @author anujkumar
  */
 public class SysAdminRightHospitalView extends javax.swing.JPanel {
 
@@ -23,6 +23,7 @@ public class SysAdminRightHospitalView extends javax.swing.JPanel {
     public SysAdminRightHospitalView(Controller system) {
         initComponents();
         this.system=system;
+        //Getting hospital directory and list of hospitals
         HospitalDirectory hd=system.getHospitalDirectory();
         List <Hospital> hospital= hd.getHospitalList();
         populateTable(hospital);
@@ -98,6 +99,7 @@ public class SysAdminRightHospitalView extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable(List <Hospital> hospital) {
+        //populating the table
     DefaultTableModel model=(DefaultTableModel) jTableViewHospital.getModel(); 
     model.setRowCount(0);
     for(Hospital h : hospital){

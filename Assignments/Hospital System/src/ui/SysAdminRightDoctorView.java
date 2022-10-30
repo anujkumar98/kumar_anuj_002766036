@@ -14,7 +14,7 @@ import model.House;
 
 /**
  *
- * @author HP
+ * @author anujkumar
  */
 public class SysAdminRightDoctorView extends javax.swing.JPanel {
 
@@ -25,6 +25,7 @@ public class SysAdminRightDoctorView extends javax.swing.JPanel {
     public SysAdminRightDoctorView(Controller system) {
         initComponents();
         this.system=system;
+        //Getting list of doctors and doctor directory
         DoctorDirectory dd=system.getDoctorDirectory();
         List <Doctor> doctor=dd.getDoctorDirectory();
         populateTable(doctor);

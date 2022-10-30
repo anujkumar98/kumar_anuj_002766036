@@ -7,7 +7,7 @@ package model;
 //import java.util.List; 
 /**
  *
- * @aut hor visha_wb3uzfg
+ * @aut hor anujkumar
  */
 public class Community extends City {
 

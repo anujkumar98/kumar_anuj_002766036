@@ -73,17 +73,17 @@ public class Controller {
         this.personDirectory.addPerson(per1);
 
         Hospital hospital2 = hospitalDirectory.searchHospitalByName("Vedanta Hospital");
-        Person per2 = this.doctorDirectory.addDoctor("Kash", 37, "Kash", "kash", Role.DOCTOR, "address1", "A", "Brigton", "Cambridge", hospital2);
+        Person per2 = this.doctorDirectory.addDoctor("Kash", 37, "Kash", "kash", Role.DOCTOR, "address1", "A", "Fenway", "Somerville", hospital2);
         this.personDirectory.addPerson(per2);
 
     }
 
     public void initializeEncounter() {
-        this.createEncounter("Kashyab", "Kash", 80, 98, "Healthy", "None");
-        this.createEncounter("Akash", "Kunal", 66, 97, "Healthy", "Pollen");
-        this.createEncounter("Kashyab", "Kash", 70, 96, "Cold", "Dogs");
-        this.createEncounter("Vishal", "Anni", 87, 102, "Fever", "Dust");
-        this.createEncounter("Vishal", "Anni", 70, 103, "High Fever", "Pollen");
+        this.createEncounter("Akash", "Kunal", 80, 98, "Healthy", "None");
+        this.createEncounter("Akash", "Anni", 66, 97, "Healthy", "Pollen");
+        this.createEncounter("Ram", "Kash", 70, 96, "Cold", "Dogs");
+        this.createEncounter("Anuj", "Kash", 87, 102, "Fever", "Dust");
+        this.createEncounter("Anuj", "Kash", 70, 103, "High Fever", "Pollen");
     }
 
     public void setPersonDirectory(PersonDirectory personDirectory) {
